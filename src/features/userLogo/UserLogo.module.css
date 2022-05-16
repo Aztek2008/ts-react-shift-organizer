@@ -1,0 +1,32 @@
+.userLogoContainer {
+  font-family: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 30px;
+  min-height: 100px;
+  background-color: transparent;
+}
+
+.userWelcome {
+  margin-bottom: 20px;
+}
+
+.avatar {
+  margin: 0 auto;
+  border-radius: 50%;
+  background-image: url('assets/avatars-cut.jpg');
+  background-repeat: no-repeat;
+  height: 100px;
+  width: 100px;
+}
+
+.menPos {
+  background-position: 100px 0;
+}
+
+.womenPos {
+  background-position: 2px -118px;
+}
+

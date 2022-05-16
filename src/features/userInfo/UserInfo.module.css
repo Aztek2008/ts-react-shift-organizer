@@ -1,0 +1,9 @@
+.title {
+  display: flex;
+  padding: 10px 35px;
+}
+
+.coveredHours {
+  display: flex;
+  align-items: center;
+}

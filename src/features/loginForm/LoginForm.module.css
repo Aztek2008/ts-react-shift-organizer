@@ -1,0 +1,38 @@
+.loginForm {
+  padding-top: 30px;
+  font-family: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.input {
+  box-sizing: border-box;
+  font-family: inherit;
+  border: none;
+  border-bottom: 1px solid #eeeded;
+  padding-left: 30px;
+  height: 25px;
+  width: 100%;
+  margin-bottom: 20px;
+  outline: none;
+}
+
+.input::placeholder {
+  color: #eeeded;
+}
+
+.button {
+  background-color: transparent;
+  margin: 0 auto 10px;
+  padding: 20px 30px;
+  border-radius: 5px;
+  border-color: #eeeded;
+  height: 35px;
+  font-family: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

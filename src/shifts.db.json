@@ -1,0 +1,86 @@
+[
+  {
+    "shiftId": 1,
+    "startTime": "00:00",
+    "endTime": "02:00",
+    "reservedBy": "not reserved",
+    "isChecked": false
+  },
+  {
+    "shiftId": 2,
+    "startTime": "02:00",
+    "endTime": "04:00",
+    "reservedBy": "not reserved",
+    "isChecked": false
+  },
+  {
+    "shiftId": 3,
+    "startTime": "04:00",
+    "endTime": "06:00",
+    "reservedBy": "not reserved",
+    "isChecked": false
+  },
+  {
+    "shiftId": 4,
+    "startTime": "06:00",
+    "endTime": "08:00",
+    "reservedBy": "not reserved",
+    "isChecked": false
+  },
+  {
+    "shiftId": 5,
+    "startTime": "08:00",
+    "endTime": "10:00",
+    "reservedBy": "not reserved",
+    "isChecked": false
+  },
+  {
+    "shiftId": 6,
+    "startTime": "10:00",
+    "endTime": "12:00",
+    "reservedBy": "not reserved",
+    "isChecked": false
+  },
+  {
+    "shiftId": 7,
+    "startTime": "12:00",
+    "endTime": "14:00",
+    "reservedBy": "not reserved",
+    "isChecked": false
+  },
+  {
+    "shiftId": 8,
+    "startTime": "14:00",
+    "endTime": "16:00",
+    "reservedBy": "not reserved",
+    "isChecked": false
+  },
+  {
+    "shiftId": 9,
+    "startTime": "16:00",
+    "endTime": "18:00",
+    "reservedBy": "not reserved",
+    "isChecked": false
+  },
+  {
+    "shiftId": 10,
+    "startTime": "18:00",
+    "endTime": "20:00",
+    "reservedBy": "not reserved",
+    "isChecked": false
+  },
+  {
+    "shiftId": 11,
+    "startTime": "20:00",
+    "endTime": "22:00",
+    "reservedBy": "not reserved",
+    "isChecked": false
+  },
+  {
+    "shiftId": 12,
+    "startTime": "22:00",
+    "endTime": "24:00",
+    "reservedBy": "not reserved",
+    "isChecked": false
+  }
+]

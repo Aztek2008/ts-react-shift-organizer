@@ -1,0 +1,14 @@
+.layout {
+  background-color: #ffffff;
+  min-width: 400px;
+  min-height: 600px;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #eeeded;
+  background: rgb(233, 98, 49);
+}
