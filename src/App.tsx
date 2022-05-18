@@ -1,25 +1,35 @@
-import Layout from 'features/layout/Layout';
+import { useEffect } from 'react';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { setCurrentUser } from 'features/userInfo/usersSlice';
+import Layout from 'features/layout/Layout';
+import { allShiftsRef, setShifts } from 'firebaseDb/config';
+import { useAppDispatch } from 'app/hooks';
+import defaultShifts from 'shifts.db.json';
 
-import './App.css';
 import MainPage from 'pages/MainPage';
 import AccountPage from 'pages/AccountPage';
 import ShiftPage from 'pages/ShiftPage';
-import { useAppDispatch } from 'app/hooks';
-import { useEffect } from 'react';
-import { setCurrentUser } from 'features/userInfo/usersSlice';
-import { emptyUser } from 'features/userInfo/usersSlice';
+// import { emptyUser } from 'features/userInfo/usersSlice';
+
+import './App.css';
+import { setReduxShifts } from 'features/shiftsList/ShiftsListSlice';
+import { onValue } from 'firebase/database';
 
 const App = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    const currentUser = localStorage.getItem('currentuser');
-    const defaultEmptyUser = JSON.stringify(emptyUser);
+    setShifts();
 
+    onValue(allShiftsRef, (DataSnapshot) => {
+      const data = DataSnapshot.val();
+      dispatch(setReduxShifts(data));
+    });
+
+    const currentUser = localStorage.getItem('currentuser');
+    // const defaultEmptyUser = JSON.stringify(emptyUser);
     if (currentUser) {
       const parsedUser = JSON.parse(currentUser);
-
       dispatch(setCurrentUser(parsedUser));
     }
   }, []);

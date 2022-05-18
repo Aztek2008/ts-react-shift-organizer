@@ -3,9 +3,17 @@
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   padding: 5px 30px;
   box-sizing: border-box;
+  border-bottom: 2px solid #fafafa;
+}
+
+/* .shiftContainer input[type='checkbox']:checked {
+  background-color: red;
+} */
+
+.shiftContainer:hover {
   background-color: #fafafa;
 }
 

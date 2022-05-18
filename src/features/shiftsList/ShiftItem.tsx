@@ -2,33 +2,22 @@ import { useAppDispatch } from 'app/hooks';
 import Checkbox from 'features/checkbox/Checkbox';
 import { IShift } from 'interfaces';
 import { handleReserveShift } from './ShiftsListSlice';
-
-import styles from './ShiftItem.module.css';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import {
-  updateCurrentUserInLocalStorage,
-  updateShiftsInLocalstorage,
-} from 'helpers/handleLocalStorage';
+import { getShifts, setShift } from 'firebaseDb/config';
 
-const ShiftItem = (props: IShift) => {
-  const { shiftId, startTime, endTime, reservedBy } = props;
+import styles from './ShiftItem.module.css';
 
+const ShiftItem = (props: { key: number; shift: IShift; setShifts?: any }) => {
+  const { shiftId, startTime, endTime, reservedBy, isChecked } = props.shift;
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
 
   const onShiftReserve = (id: number, name: string, isChecked: boolean) => {
-    // dispatch(handleReserveShift({ id, name, isChecked }));
-
-    updateShiftsInLocalstorage(shiftId, name, isChecked);
-
-    updateCurrentUserInLocalStorage(
-      shiftId,
-      name,
-      startTime,
-      endTime,
-      isChecked
-    );
+    if (reservedBy === name || reservedBy === 'not reserved') {
+      dispatch(handleReserveShift({ id, name, isChecked }));
+      setShift(shiftId, !isChecked, name);
+      getShifts(props.setShifts);
+    }
   };
 
   return (
@@ -42,6 +31,7 @@ const ShiftItem = (props: IShift) => {
         onShiftReserve={onShiftReserve}
         shiftId={shiftId}
         reservedBy={reservedBy}
+        checked={isChecked}
       />
       <span className={styles.reservedBySpan}>{reservedBy}</span>
       <Link to={`/shifts/${shiftId}`} className={styles.arrow} />

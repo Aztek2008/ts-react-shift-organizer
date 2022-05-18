@@ -1,14 +1,5 @@
 import { IShift } from 'interfaces';
 
-// const interval = setInterval(() => {
-//   const myitem = window.localStorage.getItem('allshifts');
-//   console.log(`myitem`, myitem);
-//   if (myitem) {
-//     clearInterval(interval);
-//   }
-//   // дальнейшие действия с myitem
-// }, 1000);
-
 export const updateShiftsInLocalstorage = (
   shiftId: number,
   name: string,
