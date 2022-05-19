@@ -1,19 +1,17 @@
 import { useEffect } from 'react';
+import { useAppDispatch } from 'app/hooks';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { setCurrentUser } from 'features/userInfo/usersSlice';
+import { allShiftsRef, setShifts } from 'firebaseDb/handlers';
+import { onValue } from 'firebase/database';
 import Layout from 'features/layout/Layout';
-import { allShiftsRef, setShifts } from 'firebaseDb/config';
-import { useAppDispatch } from 'app/hooks';
-import defaultShifts from 'shifts.db.json';
+import { setReduxShifts } from 'features/shiftsList/ShiftsListSlice';
 
 import MainPage from 'pages/MainPage';
 import AccountPage from 'pages/AccountPage';
 import ShiftPage from 'pages/ShiftPage';
-// import { emptyUser } from 'features/userInfo/usersSlice';
 
 import './App.css';
-import { setReduxShifts } from 'features/shiftsList/ShiftsListSlice';
-import { onValue } from 'firebase/database';
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -27,7 +25,6 @@ const App = () => {
     });
 
     const currentUser = localStorage.getItem('currentuser');
-    // const defaultEmptyUser = JSON.stringify(emptyUser);
     if (currentUser) {
       const parsedUser = JSON.parse(currentUser);
       dispatch(setCurrentUser(parsedUser));

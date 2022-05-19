@@ -1,14 +1,13 @@
+import { IShift } from 'interfaces';
+import { Link } from 'react-router-dom';
 import { useAppDispatch } from 'app/hooks';
 import Checkbox from 'features/checkbox/Checkbox';
-import { IShift } from 'interfaces';
 import { handleReserveShift } from './ShiftsListSlice';
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import { getShifts, setShift } from 'firebaseDb/config';
+import { setShift } from 'firebaseDb/handlers';
 
 import styles from './ShiftItem.module.css';
 
-const ShiftItem = (props: { key: number; shift: IShift; setShifts?: any }) => {
+const ShiftItem = (props: { key: number; shift: IShift }) => {
   const { shiftId, startTime, endTime, reservedBy, isChecked } = props.shift;
   const dispatch = useAppDispatch();
 
@@ -16,12 +15,11 @@ const ShiftItem = (props: { key: number; shift: IShift; setShifts?: any }) => {
     if (reservedBy === name || reservedBy === 'not reserved') {
       dispatch(handleReserveShift({ id, name, isChecked }));
       setShift(shiftId, !isChecked, name);
-      getShifts(props.setShifts);
     }
   };
 
   return (
-    <div className={styles.shiftContainer}>
+    <li className={styles.shiftContainer}>
       <span className={styles.timeSpanCont}>
         <span className={styles.timeSpan}>{startTime}</span>
         <span className={styles.betweenTime}>-</span>
@@ -35,7 +33,7 @@ const ShiftItem = (props: { key: number; shift: IShift; setShifts?: any }) => {
       />
       <span className={styles.reservedBySpan}>{reservedBy}</span>
       <Link to={`/shifts/${shiftId}`} className={styles.arrow} />
-    </div>
+    </li>
   );
 };
 

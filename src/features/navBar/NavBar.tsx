@@ -4,6 +4,37 @@ import { NavLink, useNavigate } from 'react-router-dom';
 
 import styles from './NavBar.module.css';
 
+const inactiveStyle = {
+  backgroundColor: 'transparent',
+  padding: 10,
+  border: '1px solid #eeeded',
+  height: 35,
+  flex: 1,
+  fontFamily: 'inherit',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  textDecoration: 'none',
+  color: 'inherit',
+};
+
+const activeStyle = {
+  backgroundColor: 'transparent',
+  padding: 10,
+  borderTop: '1px solid #eeeded',
+  borderLeft: '1px solid #eeeded',
+  borderRight: '1px solid #eeeded',
+  height: 35,
+  flex: 1,
+  fontFamily: 'inherit',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  textDecoration: 'none',
+  color: 'inherit',
+  borderBottom: 'none',
+};
+
 const NavBar = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -15,13 +46,19 @@ const NavBar = () => {
 
   return (
     <nav className={styles.navBar}>
-      <NavLink className={styles.navLink} to='/account'>
+      <NavLink
+        style={({ isActive }) => (isActive ? activeStyle : inactiveStyle)}
+        to='/account'
+      >
         Account
       </NavLink>
       <NavLink className={styles.navLink} to='/' onClick={logOut}>
         Log out
       </NavLink>
-      <NavLink className={styles.navLink} to='/'>
+      <NavLink
+        style={({ isActive }) => (isActive ? activeStyle : inactiveStyle)}
+        to='/'
+      >
         All Shifts
       </NavLink>
     </nav>

@@ -1,6 +1,6 @@
 import { useAppSelector } from 'app/hooks';
-import { FC, useEffect, useState } from 'react';
-import { boolean } from 'yup';
+import { FC, useState } from 'react';
+
 import styles from './Checkbox.module.css';
 
 interface ICheckProps {
@@ -23,7 +23,12 @@ const Checkbox: FC<ICheckProps> = ({ onShiftReserve, shiftId, checked }) => {
 
   return (
     <label className={styles.label}>
-      <input type='checkbox' onChange={handleChange} checked={checked} />
+      <input
+        data-testid='input-checkbox'
+        type='checkbox'
+        onChange={handleChange}
+        checked={checked}
+      />
       <svg
         className={`${styles.checkbox} ${checked ? styles.checkboxActive : ''}`}
         aria-hidden='true'
