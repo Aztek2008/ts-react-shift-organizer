@@ -9,7 +9,6 @@ import { setReduxShifts } from 'features/shiftsList/ShiftsListSlice';
 import Layout from 'features/layout/Layout';
 import MainPage from 'pages/MainPage';
 import AccountPage from 'pages/AccountPage';
-import ShiftPage from 'pages/ShiftPage';
 
 import './App.css';
 
@@ -38,7 +37,6 @@ const App = () => {
           <Routes>
             <Route path='/' element={<MainPage />} />
             <Route path='/account' element={<AccountPage />} />
-            <Route path='/shifts/:id' element={<ShiftPage />} />
           </Routes>
         </Layout>
       </Router>

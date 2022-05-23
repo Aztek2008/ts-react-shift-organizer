@@ -39,7 +39,6 @@ const ShiftItem = (props: { key?: number; shift: IShift }) => {
         checked={isChecked}
       />
       <span className={styles.reservedBySpan}>{reservedBy}</span>
-      {/* <Link to={`/shifts/${shiftId}`} className={styles.arrow} /> */}
       <div onClick={() => openModal(shiftId)} className={styles.arrow}></div>
     </li>
   );
