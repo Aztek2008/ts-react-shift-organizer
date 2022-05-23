@@ -4,10 +4,9 @@ import { NavLink, useNavigate } from 'react-router-dom';
 
 import styles from './NavBar.module.css';
 
-const inactiveStyle = {
+const tabStyle = {
   backgroundColor: 'transparent',
   padding: 10,
-  border: '1px solid #eeeded',
   height: 35,
   flex: 1,
   fontFamily: 'inherit',
@@ -18,21 +17,18 @@ const inactiveStyle = {
   color: 'inherit',
 };
 
-const activeStyle = {
-  backgroundColor: 'transparent',
-  padding: 10,
+const noBottomStyle = {
   borderTop: '1px solid #eeeded',
-  borderLeft: '1px solid #eeeded',
   borderRight: '1px solid #eeeded',
-  height: 35,
-  flex: 1,
-  fontFamily: 'inherit',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  textDecoration: 'none',
-  color: 'inherit',
+  borderLeft: '1px solid #eeeded',
   borderBottom: 'none',
+};
+
+const inactiveStyle = { ...tabStyle, border: '1px solid #eeeded' };
+
+const activeStyle = {
+  ...tabStyle,
+  ...noBottomStyle,
 };
 
 const NavBar = () => {

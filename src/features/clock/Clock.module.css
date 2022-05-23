@@ -1,0 +1,163 @@
+.clockContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.clockFaceWrapper {
+  width: 150px;
+  height: 150px;
+  border: 1px solid #d8c3a5;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  transform: rotate(15deg);
+}
+
+.sector {
+  position: absolute;
+  transform-origin: 100% 100%;
+  background: #d8c3a5;
+  width: 5000px;
+  height: 5000px;
+  left: 50%;
+  top: 50%;
+  border: 1px solid #d8c3a5;
+  margin-top: -5000px;
+  margin-left: -5000px;
+}
+
+.filledSector {
+  background-color: #e98074;
+}
+
+/* ============================================== */
+
+.radialGraph,
+.shape,
+.mask,
+.fill {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+}
+
+.shape,
+.mask,
+.fill {
+  position: absolute;
+  background-color: #ebeff1;
+}
+
+.mask,
+.fill {
+  -webkit-backface-visibility: hidden;
+  transition: transform 1s;
+  border-radius: 50%;
+}
+
+.mask {
+  clip: rect(0px, 220px, 220px, 110px);
+}
+.fill {
+  clip: rect(0px, 110px, 220px, 0px);
+  background-color: #50e3c2;
+}
+
+.cutout {
+  margin-left: 15px;
+  margin-top: 15px;
+  width: 190px;
+  height: 190px;
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.mask.fullMask,
+.fill {
+  /*
+    For a value of 90%
+    0.9 * 360  / 2
+  */
+  transform: rotate(162deg);
+}
+.fill.shim {
+  /* 
+    For a value of 90%
+    0.9 * 360
+  */
+  transform: rotate(324deg);
+}
+
+.start .mask.fullMask,
+.start .fill {
+  /* For a value of 40% */
+  /* 0.4 * 360  / 2 */
+
+  transform: rotate(0deg);
+}
+.start .fill.shim {
+  /* 
+    For a value of 40%
+    0.4 * 360
+  */
+  transform: rotate(0deg);
+}
+
+.end .mask.fullMask,
+.end .fill {
+  /*
+    For a value of 81%
+    0.81 * 360  / 2
+  */
+  transform: rotate(145.8deg);
+}
+.end .fill.shim {
+  /* 
+    For a value of 81%
+    0.81 * 360
+  */
+  transform: rotate(291.6deg);
+}
+
+/*  */
+
+.pie {
+  overflow: hidden;
+  position: relative;
+  margin: 1em auto;
+  border: dashed 1px;
+  padding: 0;
+  width: 32em;
+  height: 32em;
+  border-radius: 50%;
+  list-style: none;
+}
+.slice {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 50%;
+  transform-origin: 0% 100%;
+}
+.slice:first-child {
+  transform: rotate(15deg) skewY(-22.5deg);
+}
+.sliceContents {
+  position: absolute;
+  left: -100%;
+  width: 200%;
+  height: 200%;
+  border-radius: 50%;
+  background: lightblue;
+}
+.slice:first-child .sliceContents {
+  transform: skewY(22.5deg); /* unskew slice contents */
+}
+.slice:hover .sliceContents {
+  background: violet;
+}

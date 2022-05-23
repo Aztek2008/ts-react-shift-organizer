@@ -1,0 +1,48 @@
+.modalContainer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #8e8d8a80;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #eae7dc;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.closeBtn {
+  height: 30px;
+  width: 30px;
+  background-color: transparent;
+  border: 0;
+  background-image: url('assets/close.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: 5px;
+}
+
+.shiftInfo {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
+
+.infoSpanCont {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.innerSpan {
+  margin-right: 10px;
+}

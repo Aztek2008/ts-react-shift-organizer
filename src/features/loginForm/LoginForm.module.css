@@ -18,10 +18,11 @@
   width: 100%;
   margin-bottom: 20px;
   outline: none;
+  background-color: inherit;
 }
 
 .input::placeholder {
-  color: #eeeded;
+  color: #8e8d8a;
 }
 
 .button {

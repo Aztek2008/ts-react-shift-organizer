@@ -4,9 +4,9 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { setCurrentUser } from 'features/userInfo/usersSlice';
 import { allShiftsRef, setShifts } from 'firebaseDb/handlers';
 import { onValue } from 'firebase/database';
-import Layout from 'features/layout/Layout';
 import { setReduxShifts } from 'features/shiftsList/ShiftsListSlice';
 
+import Layout from 'features/layout/Layout';
 import MainPage from 'pages/MainPage';
 import AccountPage from 'pages/AccountPage';
 import ShiftPage from 'pages/ShiftPage';
@@ -29,7 +29,7 @@ const App = () => {
       const parsedUser = JSON.parse(currentUser);
       dispatch(setCurrentUser(parsedUser));
     }
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className='App'>

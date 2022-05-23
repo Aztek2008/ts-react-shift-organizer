@@ -16,10 +16,10 @@
 .avatar {
   margin: 0 auto;
   border-radius: 50%;
-  background-image: url('assets/avatars-cut.jpg');
+  background-image: url('assets/avatars-cut-2.jpg');
   background-repeat: no-repeat;
-  height: 100px;
-  width: 100px;
+  height: 95px;
+  width: 95px;
 }
 
 .menPos {
@@ -27,6 +27,5 @@
 }
 
 .womenPos {
-  background-position: 2px -118px;
+  background-position: 0px -116px;
 }
-

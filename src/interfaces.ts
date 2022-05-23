@@ -4,6 +4,11 @@ export interface ILayoutProps {
   children: ReactElement[] | ReactElement;
 }
 
+export interface IModalProps {
+  // open: boolean;
+  shift: ReactElement[] | ReactElement;
+}
+
 export interface IUser {
   userId: number;
   userName: string;

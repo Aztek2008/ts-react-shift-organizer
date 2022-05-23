@@ -6,7 +6,7 @@
   margin-bottom: 5px;
   padding: 5px 30px;
   box-sizing: border-box;
-  border-bottom: 2px solid #fafafa;
+  border-bottom: 2px solid #eeeded;
 }
 
 /* .shiftContainer input[type='checkbox']:checked {
@@ -14,7 +14,7 @@
 } */
 
 .shiftContainer:hover {
-  background-color: #fafafa;
+  background-color: #d8c3a5;
 }
 
 .timeSpanCont {
@@ -24,7 +24,7 @@
 }
 
 .timeSpan {
-  background-color: #fff;
+  background-color: #eae7dc;
   padding: 10px 20px;
   border-radius: 10px;
 }
@@ -41,7 +41,7 @@
 }
 
 .reservedBySpan {
-  background-color: #fff;
+  background-color: #eae7dc;
   padding: 5px 10px;
   border-radius: 10px;
   font-size: 10px;
@@ -55,11 +55,12 @@
 .arrow {
   display: flex;
   align-items: center;
-  background-image: url('../../assets/right-arrow.png');
+  background-image: url('../../assets/scribble.png');
   background-size: contain;
   background-repeat: no-repeat;
   width: 20px;
   height: 20px;
   background-color: inherit;
   margin-left: 5px;
+  cursor: pointer;
 }

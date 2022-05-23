@@ -1,5 +1,5 @@
 .layout {
-  background-color: #ffffff;
+  background-color: #eae7dc;
   min-width: 400px;
   min-height: 600px;
 }
@@ -9,6 +9,9 @@
   justify-content: center;
   align-items: center;
   padding: 10px;
-  border-bottom: 1px solid #eeeded;
-  background: rgb(233, 98, 49);
+  border-bottom: 1px solid #e85a4f;
+  background: #e85a4f;
+  color: #323232;
+  font-weight: normal;
+  /* #e98074; */
 }
