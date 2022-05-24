@@ -28,6 +28,7 @@
   background-repeat: no-repeat;
   background-size: contain;
   margin: 5px;
+  cursor: pointer;
 }
 
 .shiftInfo {

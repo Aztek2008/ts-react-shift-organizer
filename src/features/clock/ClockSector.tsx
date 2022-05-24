@@ -1,4 +1,6 @@
-import { FC } from 'react';
+import { useAppDispatch } from 'app/hooks';
+import { setDayTime } from 'features/modal/ModalSlice';
+import { FC, useEffect, useState } from 'react';
 
 import styles from './Clock.module.css';
 
@@ -9,16 +11,27 @@ interface IProp {
 }
 
 const ClockSector: FC<IProp> = ({ shiftIds, id, rotateDeg }) => {
-  const sectorId = shiftIds.includes(Number(id));
-  console.log('sectorId', sectorId);
+  const sectorIdAm = shiftIds.includes(Number(id));
+  const sectorIdPm = shiftIds.includes(Number(id) + 6);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    if (shiftIds[0] <= 6) {
+      dispatch(setDayTime('AM'));
+    } else if (shiftIds[0] > 6) {
+      dispatch(setDayTime('PM'));
+    }
+  }, [shiftIds, dispatch]);
 
   return (
     <div
       id={id}
       className={
-        !sectorId ? styles.sector : `${styles.sector} ${styles.filledSector}`
+        !(sectorIdAm || sectorIdPm)
+          ? styles.sector
+          : `${styles.sector} ${styles.filledSector}`
       }
-      style={{ transform: `rotate(${rotateDeg}deg) skew(60deg)` }}
+      style={{ transform: `rotate(${rotateDeg}deg) skew(30deg)` }}
     ></div>
   );
 };

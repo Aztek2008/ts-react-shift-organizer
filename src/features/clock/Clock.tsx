@@ -1,3 +1,4 @@
+import { useAppSelector } from 'app/hooks';
 import { FC } from 'react';
 import styles from './Clock.module.css';
 import ClockSector from './ClockSector';
@@ -7,20 +8,24 @@ interface IProp {
 }
 
 const Clock: FC<IProp> = ({ shiftIds }) => {
-  const rotateDegArray = [
-    75, 105, 135, 165, 195, 225, 255, 285, 315, 345, 375, 405,
-  ];
+  const { dayTime } = useAppSelector((state) => state.modal);
+  const rotateDegArray = [105, 165, 225, 285, 345, 405];
 
   return (
     <div className={styles.clockContainer}>
-      <div className={styles.clockFaceWrapper}>
-        {rotateDegArray.map((deg, idx) => (
-          <ClockSector
-            shiftIds={shiftIds}
-            id={(idx + 1).toString()}
-            rotateDeg={deg}
-          />
-        ))}
+      <div className={styles.centerCircle}></div>
+      <span className={styles.dateTime}>{dayTime === 'AM' ? 'AM' : 'PM'}</span>
+      <div className={styles.clockFaceUnderWrapper}>
+        <div className={styles.clockFaceWrapper}>
+          {rotateDegArray.map((deg, idx) => (
+            <ClockSector
+              key={idx}
+              shiftIds={shiftIds}
+              id={(idx + 1).toString()}
+              rotateDeg={deg}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

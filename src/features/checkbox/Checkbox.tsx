@@ -34,6 +34,7 @@ const Checkbox: FC<ICheckProps> = ({ onShiftReserve, shiftId, checked }) => {
         aria-hidden='true'
         viewBox='0 0 15 11'
         fill='none'
+        id='checkbox-svg'
       >
         <path
           d='M1 4.5L5 9L14 1'
