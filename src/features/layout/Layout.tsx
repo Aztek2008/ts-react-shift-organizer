@@ -1,12 +1,12 @@
 import { FC, useEffect, useState } from 'react';
-import { ILayoutProps } from 'interfaces';
+import { useLocation } from 'react-router-dom';
 import { useAppSelector } from 'app/hooks';
-import UserLogo from 'features/userLogo/UserLogo';
-import LoginForm from 'features/loginForm/LoginForm';
-import NavBar from 'features/navBar/NavBar';
+import { ILayoutProps } from 'interfaces';
+import LoginFormIK from 'features/loginForm/LoginFormIK';
+// import LoginForm from 'features/loginForm/LoginForm';
+import LoggedUserUI from 'ui/LoggedUserUI';
 
 import styles from './Layout.module.css';
-import { useLocation } from 'react-router-dom';
 
 const Layout: FC<ILayoutProps> = ({ children }) => {
   const { userName } = useAppSelector((state) => state.users.user);
@@ -26,8 +26,8 @@ const Layout: FC<ILayoutProps> = ({ children }) => {
   return (
     <div className={styles.layout}>
       <header className={styles.header}>{title}</header>
-      {userName ? <UserLogo /> : <LoginForm />}
-      {userName && <NavBar />}
+      {userName ? <LoggedUserUI /> : <LoginFormIK />}
+      {/* {userName ? <LoggedUserUI /> : <LoginForm />} */}
       <div>{children}</div>
     </div>
   );

@@ -48,7 +48,12 @@ const NavBar = () => {
       >
         Account
       </NavLink>
-      <NavLink className={styles.navLink} to='/' onClick={logOut}>
+      <NavLink
+        id='logout-btn'
+        className={styles.navLink}
+        to='/'
+        onClick={logOut}
+      >
         Log out
       </NavLink>
       <NavLink

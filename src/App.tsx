@@ -6,6 +6,7 @@ import { allShiftsRef, setShifts } from 'firebaseDb/handlers';
 import { onValue } from 'firebase/database';
 import { setReduxShifts } from 'features/shiftsList/ShiftsListSlice';
 
+import Modal from 'features/modal/Modal';
 import Layout from 'features/layout/Layout';
 import MainPage from 'pages/MainPage';
 import AccountPage from 'pages/AccountPage';
@@ -34,6 +35,7 @@ const App = () => {
     <div className='App'>
       <Router>
         <Layout>
+          <Modal />
           <Routes>
             <Route path='/' element={<MainPage />} />
             <Route path='/account' element={<AccountPage />} />

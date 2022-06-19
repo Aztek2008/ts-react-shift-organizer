@@ -20,7 +20,7 @@ const ShiftItem = (props: { key?: number; shift: IShift }) => {
   };
 
   const openModal = (id: number) => {
-    console.log('id', id);
+    console.log('open modeal event');
     dispatch(toggleModal());
     dispatch(setShiftId(id));
   };

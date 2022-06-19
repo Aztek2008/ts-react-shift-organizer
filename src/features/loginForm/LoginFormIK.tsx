@@ -114,7 +114,7 @@ const LoginInput: FC = () => {
           type='submit'
           className={styles.button}
           onClick={loginEmailPassword}
-          disabled={formIsValid}
+          disabled={!formIsValid}
         >
           Log in
         </button>

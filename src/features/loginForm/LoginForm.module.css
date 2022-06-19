@@ -36,4 +36,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.26);
+}
+
+.button:hover {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.26);
 }

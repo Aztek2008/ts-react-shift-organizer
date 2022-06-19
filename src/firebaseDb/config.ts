@@ -1,5 +1,12 @@
 import { initializeApp } from 'firebase/app';
+import {
+  getAuth,
+  onAuthStateChanged,
+  connectAuthEmulator,
+  signInWithEmailAndPassword,
+} from 'firebase/auth';
 import { getDatabase } from 'firebase/database';
+import { userEmailField, userNameField, userPassField } from 'ui/logInFormUi';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCNBZCBqZ6i3nnr2XZYIBJi8kULTEsWR2k',
@@ -13,5 +20,33 @@ export const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-export const db = getDatabase(app);
+const firebaseApp = initializeApp(firebaseConfig);
+const auth = getAuth(firebaseApp);
+const LOGIN_PAGE = 'http://localhost:9099';
+export const db = getDatabase(firebaseApp);
+
+// Detect auth state
+onAuthStateChanged(auth, (user) => {
+  if (user !== null) {
+    console.log('logged in!');
+  } else {
+    console.log('no user');
+  }
+});
+
+connectAuthEmulator(auth, LOGIN_PAGE);
+
+export const loginEmailPassword = async () => {
+  console.log('loginEmailPassword works!');
+  const loginName = userNameField?.value;
+  const loginEmail = userEmailField?.value;
+  const loginPass = userPassField?.value;
+
+  const userCreds = await signInWithEmailAndPassword(
+    auth,
+    loginEmail,
+    loginPass
+  );
+
+  console.log('userCreds:', userCreds);
+};

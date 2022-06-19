@@ -1,4 +1,5 @@
 import { useAppSelector } from 'app/hooks';
+import Clock from 'features/clock/Clock';
 import ShiftItem from 'features/shiftsList/ShiftItem';
 
 import styles from './UserInfo.module.css';
@@ -8,6 +9,9 @@ const UserInfo = () => {
   const { userName } = useAppSelector((state) => state.users.user);
   const userShifts = shifts.filter((shift) => shift.reservedBy === userName);
   const workingDay = 8;
+  const shiftIds = shifts
+    .filter((shift) => shift.reservedBy === userName)
+    .map((shift) => shift.shiftId - 1);
 
   return (
     <div>
@@ -31,6 +35,7 @@ const UserInfo = () => {
           </span>
         </article>
       ) : null}
+      <Clock shiftIds={shiftIds} skewDeg={60} />
     </div>
   );
 };
